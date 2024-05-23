@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>weatherApp</title>
+        <link rel="stylesheet" type="text/css" href="/style.css" />
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        />
+      </head>
+
+      <body>
+
+        <div class="container">
+            <form action="/weather" method="get">
+                <input type="text" name="city" placeholder="enter city">
+                <button type="submit">get weather</button>
+            </form>
+
+        <% if(error){ %>
+          <p class="error"><%= error %></p>  
+        <%}else if(weather){ %>
+            <div class="card">
+                <p>
+                    <i class="fas fa-thermometer-three-quarters"></i>
+                    <%=weather.main.temp %>&deg;
+                </p>
+                <p>
+                    <i class="fas fa-cloud"></i>
+                    <%=weather.weather[0].main %>
+                </p>
+                <p>
+                    <i class="fal fa-map-marker-alt"></i>
+                    <%=weather.name %>,<%=weather.sys.country%>
+                </p>
+            </div>
+        <% } %>
+        </div>
+      </body> 
+</html>
